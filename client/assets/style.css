@@ -1,1 +1,18 @@
-/* Styles */
+.header {
+  margin: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.trendingtoday h6 {
+  padding-left: 75px;
+  padding-bottom: 20px;
+}
+.row2 {
+  margin: auto;
+  outline: solid black 2px;
+}
+.popularposts h6 {
+  padding-left: 75px;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
