@@ -1,9 +1,11 @@
 import store from "../store.js";
 
+let _jokeApi = axios.create({
+  baseURL: "localhost:",
+  timeout: 3000,
+});
 class JokesService {
-  getAllJokes() {
-    ;
-  }
+  getAllJokes() {}
 }
 
 const jokesService = new JokesService();
