@@ -5,8 +5,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 const Comment = new Schema(
   {
-    joke: { type: ObjectId, ref: "Joke", required: true },
-    user: { type: ObjectId, ref: "User", required: true },
+    joke: { type: String, required: true },
     body: { type: String, required: true },
     tags: [{ type: ObjectId, ref: "Tag" }]
   },
