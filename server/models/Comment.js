@@ -6,8 +6,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 const Comment = new Schema(
   {
     joke: { type: String, required: true },
-    body: { type: String, required: true },
-    tags: [{ type: ObjectId, ref: "Tag" }]
+    body: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
