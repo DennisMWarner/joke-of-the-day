@@ -14,6 +14,7 @@ export default class JokesController {
   }
 
   getAllJokes () {
-    JokesService.getAllJokes()
+    JokesService.getAllJokes();
+    
   }
 }
