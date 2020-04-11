@@ -1,7 +1,7 @@
 
 import express, { request } from "express";
 import BaseController from "../utils/BaseController";
-import { commentService } from "../services/CommentsService.js";
+import { commentService } from "../services/CommentService.js";
 import { BadRequest } from "../utils/Errors";
 
 export class commentsController extends BaseController {

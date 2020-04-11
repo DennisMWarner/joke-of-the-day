@@ -10,7 +10,7 @@ class CommentsService {
     let comment = await dbContext.Comment.findByIdAndDelete(commentId)
     return comment
   }
-  async create(body) {
+  async create(body, userId, jokeId) {
     let comment = await dbContext.Comment.create(body)
     return comment
   }
