@@ -1,6 +1,7 @@
 import express from 'express'
 import BaseController from "../utils/BaseController";
 import { jokesService } from "../services/JokesService";
+import { BadRequest } from "../utils/Errors";
 
 
 export class JokesController extends BaseController {
@@ -54,7 +55,7 @@ export class JokesController extends BaseController {
   async delete(req, res, next) {
     try {
       let data = await jokesService.delete(req.params.id) //get the id from the requests parameters, and send that information to the service.
-      res.send({ data: data, message: "joke deleted!" })
+      res.send({ data: data, message: "Joke deleted!" })
     } catch (error) {
       next(error)
     }

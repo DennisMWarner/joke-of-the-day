@@ -9,9 +9,8 @@ export class UsersController extends BaseController {
   constructor() {
     super("api/users")
     this.router
-      .get("", this.getUser)
-      .get("/:id/jokes", this.getId)
-      .get("/:id/comments", this.getCommentsByUserId)
+      .get("", this.getAll)
+      .get("/:id", this.getById)
       //authorization would go here, everything below this point in the router would require authorization to do.
       .post('', this.create)
       .put("/:id", this.edit)
@@ -20,7 +19,7 @@ export class UsersController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      let data = await usersService.getUsers() //run this function in the service, get them all for me.
+      let data = await usersService.getAll() //run this function in the service, get them all for me.
       res.send({ data: data, message: "This is where the users live, get you one!" })
     } catch (error) {
       next(error)

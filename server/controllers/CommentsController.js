@@ -1,7 +1,7 @@
 
 import express, { request } from "express";
 import BaseController from "../utils/BaseController";
-import { commentService } from "../services/CommentsService.js";
+import { commentsService } from "../services/CommentsService.js";
 import { BadRequest } from "../utils/Errors";
 
 export class commentsController extends BaseController {
@@ -17,7 +17,7 @@ export class commentsController extends BaseController {
 
   async edit(req, res, next) {
     try {
-      let comment = commentService.edit(req.params.commentId, req.body)
+      let comment = commentsService.edit(req.params.commentId, req.body)
       res.send(comment)
     } catch (error) {
       next(error)
@@ -25,7 +25,7 @@ export class commentsController extends BaseController {
   }
   async remove(req, res, next) {
     try {
-      let comment = commentService.remove(req.params.commentId)
+      let comment = commentsService.remove(req.params.commentId)
       res.send(comment)
     } catch (error) {
       next(error)
@@ -33,7 +33,7 @@ export class commentsController extends BaseController {
   }
   async getAll(req, res, next) {
     try {
-      let comments = commentService.getAll()
+      let comments = commentsService.getAll()
       res.send(comments)
     } catch (error) {
       next(error);
@@ -42,7 +42,7 @@ export class commentsController extends BaseController {
 
   async getById(req, res, next) {
     try {
-      let comment = commentService.getById(req.params.commentId)
+      let comment = commentsService.getById(req.params.commentId)
       if (!comment) {
         throw new BadRequest("Invalid comment Id")
       }
@@ -53,7 +53,7 @@ export class commentsController extends BaseController {
   }
   async create(req, res, next) {
     try {
-      let comment = commentService.create(req.body)
+      let comment = commentsService.create(req.body)
       res.send(comment);
     } catch (error) {
       next(error);

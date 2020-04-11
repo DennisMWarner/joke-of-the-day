@@ -3,23 +3,23 @@ import { BadRequest } from "../utils/Errors";
 
 class TagsService {
   async edit(tagId, body) {
-    let tag = await dbContext.Tags.findByIdAndUpdate(tagId, body, { new: true })
+    let tag = await dbContext.Tag.findByIdAndUpdate(tagId, body, { new: true })
     return tag
   }
   async remove(tagId) {
-    let tag = await dbContext.Tags.findByIdAndDelete(tagId)
+    let tag = await dbContext.Tag.findByIdAndDelete(tagId)
     return tag
   }
   async create(body) {
-    let tag = await dbContext.Tags.create(body)
+    let tag = await dbContext.Tag.create(body)
     return tag
   }
   async getAll(query = {}) {
-    let tags = await dbContext.Tags.find(query);
+    let tags = await dbContext.Tag.find(query);
     return tags;
   }
   async getById(id) {
-    let tag = await dbContext.Tags.findById(id);
+    let tag = await dbContext.Tag.findById(id);
     if (!tag) {
       throw new BadRequest("Invalid Id");
     }
