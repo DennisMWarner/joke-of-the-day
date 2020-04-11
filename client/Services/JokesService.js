@@ -2,7 +2,7 @@ import store from "../store.js";
 import Joke from "../Models/Joke.js";
 
 let _jokeApi = axios.create({
-  baseURL: "//bcw-sandbox.herokuapp.com/api/images",
+  baseURL: "https://api.jokes.one/jod",
   timeout: 3000,
 });
 class JokesService {
