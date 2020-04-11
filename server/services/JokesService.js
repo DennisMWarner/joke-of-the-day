@@ -7,7 +7,7 @@ class JokesService {
     return data
   }
 
-  async getById(id) {
+  async getId(id) {
     let data = await dbContext.Jokes.findById(id) //go to the Jokes endpoint and find the object with this id.
     return data
   }
