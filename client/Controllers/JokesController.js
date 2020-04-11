@@ -4,17 +4,15 @@ import store from "../store.js";
 //Private
 function _draw() {
   let jokes = store.State.jokes;
-  console.log(jokes);
+  let template = "";
+
+  console.log("Jokes: ", jokes);
 }
 
 //Public
 export default class JokesController {
   constructor() {
-    store.subscribe("jokes", _draw);
-  }
-
-  getAllJokes () {
     JokesService.getAllJokes();
-    
+    store.subscribe("jokes", _draw);
   }
 }

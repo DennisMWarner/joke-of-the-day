@@ -1,9 +1,11 @@
 export default class Joke {
   constructor(data) {
-      this.title = data.title
+    this.id = data.data.id;
+    this.imgUrl = data.data.url;
   }
-
   get Template() {
-      return this.title
+    return /*html*/ `<div class="col-3 p-0 trending-img">
+  <img class="img-fluid" src="${this.imgUrl}" />
+</div>`;
   }
 }

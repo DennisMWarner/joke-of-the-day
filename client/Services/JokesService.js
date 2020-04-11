@@ -1,5 +1,5 @@
 import store from "../store.js";
-import Joke from "../Models/Joke.js"
+import Joke from "../Models/Joke.js";
 
 let _jokeApi = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/images",
@@ -7,13 +7,13 @@ let _jokeApi = axios.create({
 });
 class JokesService {
   async getAllJokes() {
-    try {let jokes = await _jokeApi.get()
-      console.log(jokes)
-      jokes.map(jokeRawData => new Joke(jokeRawData))
-      store.commit('jokes', jokes)
-    }
-    catch(err) {
-      console.log(err)
+    try {
+      let jokes = await _jokeApi.get();
+      console.log(jokes);
+      jokes = new Joke(jokes);
+      store.commit("jokes", jokes);
+    } catch (err) {
+      console.log(err);
     }
   }
 }
