@@ -3,23 +3,23 @@ import { BadRequest } from "../utils/Errors";
 
 class CommentsService {
   async edit(commentId, body) {
-    let comment = await dbContext.Comment.findByIdAndUpdate(commentId, body, { new: true })
+    let comment = await dbContext.Comments.findByIdAndUpdate(commentId, body, { new: true })
     return comment
   }
   async remove(commentId) {
-    let comment = await dbContext.Comment.findByIdAndDelete(commentId)
+    let comment = await dbContext.Comments.findByIdAndDelete(commentId)
     return comment
   }
   async create(body) {
-    let comment = await dbContext.Comment.create(body)
+    let comment = await dbContext.Comments.create(body)
     return comment
   }
   async getAll(query = {}) {
-    let comments = await dbContext.Comment.find(query).populate("tags");
+    let comments = await dbContext.Comments.find(query).populate("tags");
     return comments;
   }
   async getById(id) {
-    let comment = await dbContext.Comment.findById(id);
+    let comment = await dbContext.Comments.findById(id);
     if (!comment) {
       throw new BadRequest("Invalid Id");
     }
@@ -27,4 +27,4 @@ class CommentsService {
   }
 }
 
-export const commentsService = new CommentService();
+export const commentsService = new CommentsService();
