@@ -1,7 +1,7 @@
 import { dbContext } from "../db/DbContext";
 import { BadRequest } from "../utils/Errors";
 
-class CommentService {
+class CommentsService {
   async edit(commentId, body) {
     let comment = await dbContext.Comments.findByIdAndUpdate(commentId, body, { new: true })
     return comment
