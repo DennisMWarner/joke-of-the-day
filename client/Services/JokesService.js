@@ -2,7 +2,8 @@ import store from "../store.js";
 import Joke from "../Models/Joke.js";
 
 let _jokeApi = axios.create({
-  baseURL: "https://api.jokes.one/jod",
+  // baseURL: "https://api.jokes.one/jod",
+  baseURL: "http://api.icndb.com/jokes/random/10",
   timeout: 3000,
 });
 class JokesService {
