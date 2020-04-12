@@ -10,12 +10,14 @@ class JokesService {
   async getAllJokes() {
     try {
       let jokes = await _jokeApi.get();
-      console.log(jokes);
-      jokes = new Joke(jokes);
-      store.commit("jokes", jokes);
+      let allJokes = jokes.data.value.map(
+        (jokeRawData) => new Joke(jokeRawData)
+      );
+      store.commit("jokes", allJokes);
     } catch (err) {
       console.log(err);
     }
+    console.log("Jokes in store: ", store.State.jokes);
   }
 }
 

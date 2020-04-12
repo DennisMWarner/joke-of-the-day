@@ -6,7 +6,8 @@ function _draw() {
   let jokes = store.State.jokes;
   let template = "";
 
-  console.log("Jokes: ", jokes);
+  store.State.jokes.forEach((joke) => (template += joke.Template));
+  document.getElementById("joke-area").innerHTML = template;
 }
 
 //Public
